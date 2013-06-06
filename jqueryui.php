@@ -11,16 +11,21 @@ $plugin_is_filter = 9|THEME_PLUGIN;
 $plugin_description = gettext('A plugin to either load jQuery UI and also enable macros for accordion and tabs.');
 $plugin_author = 'Malte Müller (acrylian)';
 $plugin_version = '1.4.5';
-$option_interface = 'jqueryui_options';
-//zp_register_filter('theme_head','socialshareprivacyJS');
+$option_interface = 'jqueryui';
 
-class queryui_options {
+global $_zp_gallery, $_zp_gallery_page;
+if (getOption('jqueryui_'.$_zp_gallery->getCurrentTheme().'_'.stripSuffix($_zp_gallery_page))) {
+	zp_register_filter('theme_head','jqueryui::jqueryuiJS');
+}
+zp_register_filter('content_macro','jqueryui::macros');
+
+class jqueryui {
 
 	/**
 	 * class instantiation function
 	 */
 	function __construct() {
-	
+		setOptionDefault('jqueryui_theme', 'ui-lightness');
 	}
 	
 	function getOptionsSupported() {
@@ -30,7 +35,7 @@ class queryui_options {
 			Options types are the same for plugins and themes.
 		*/
 		$options = array(
-			 gettext('jQuery UI theme') => array('key' => 'queryui_theme', 'type' => OPTION_TYPE_SELECTOR,
+			 gettext('jQuery UI theme') => array('key' => 'jqueryui_theme', 'type' => OPTION_TYPE_SELECTOR,
 	 				'selections' => $themes,
 	 				'desc' => gettext("Select the theme to use. Place custom skin within the root plugins folder. See plugin documentation for more info."))
 		);
@@ -42,7 +47,7 @@ class queryui_options {
 			}
 			$opts[$theme] = array('key' => 'jqueryui_'.$theme.'_scripts', 'type' => OPTION_TYPE_CHECKBOX_ARRAY,
 					'checkboxes' => $list,
-					'desc' => gettext('The scripts for which jquery ui should be loaded.')
+					'desc' => gettext('The scripts for which jQuery UI should be loaded.')
 			);
 		}
 		$options = array_merge($options, $opts);
@@ -56,15 +61,14 @@ class queryui_options {
  */
 function getUIThemes() {
 	$all_skins = array();
-	$default_skins_dir = SERVERPATH.'/'.ZENFOLDER.'/'.PLUGIN_FOLDER.'/jqueryui/skin/';
-	$user_skins_dir = SERVERPATH.'/'.USER_PLUGIN_FOLDER.'/jqueryui/skin/';
+	$default_skins_dir = SERVERPATH.'/'.USER_PLUGIN_FOLDER.'/jqueryui/themes';
+	$user_skins_dir = SERVERPATH.'/'.USER_PLUGIN_FOLDER.'/jqueryui/themes';
 	$filestoignore = array( '.', '..','.DS_Store','Thumbs.db','.htaccess','.svn');
 	$skins = array_diff(scandir($default_skins_dir),array_merge($filestoignore));
-	$default_skins = getUIThemeCSS($skins,$default_skins_dir);
-	//echo "<pre>";print_r($default_skins);echo "</pre>";
+	$default_skins = $this->getUIThemeCSS($skins,$default_skins_dir);
 	$skins2 = @array_diff(scandir($user_skins_dir),array_merge($filestoignore));
 	if(is_array($skins2)) {
-		$user_skins = getUIThemeCSS($skins2,$user_skins_dir);
+		$user_skins = $this->getUIThemeCSS($skins2,$user_skins_dir);
 		//echo "<pre>";print_r($user_skins);echo "</pre>";
 		$default_skins = array_merge($default_skins,$user_skins);
 	}
@@ -85,15 +89,90 @@ function getUIThemeCSS($skins,$dir) {
 	}
 	return $skin_css;
 }
-
 /**
 * Adds the jQuery calls to the theme head via filter
 */
 static function jqueryuiJS() {
+	$skin = getOption('jqueryui_theme');
+	if(file_exists($skin)) {
+		$skin = str_replace(SERVERPATH,WEBPATH,$skin); //replace SERVERPATH as that does not work as a CSS link
+	} else {
+		$skin = WEBPATH.'/'.ZENFOLDER.'/'.PLUGIN_FOLDER.'/jplayer/skin/zenphotolight/jplayer.zenphotolight.css';
+	}
 	?>
 	<script type="text/javascript" src="<?php echo FULLWEBPATH.'/'.USER_PLUGIN_FOLDER; ?>/jqueryui/jquery-ui.min.js"></script>
+  <link href="<?php echo $skin; ?>" rel="stylesheet" type="text/css" />
+  <script>
+ 		$(function() {
+    	$(".accordion").accordion();
+  	});
+  </script>
   <?php	
 }
-	
+
+static function macros($macros) {
+		define('ACCORDION_END','</div>');
+		define('ACCORDION_HL','<h3>');
+		define('ACCORDION_HL_END','</h3>');
+		define('ACCORDION_EL','<div>');
+		define('ACCORDION_EL_END','</div>');
+		
+		$macros['UIACC'] = array(
+				'class'=>'function',
+				'regex'=>'/^(.*)$/',
+				'value'=>'jqueryui::getUIAccordionStart',
+				'owner'=>'jqueryui',
+				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion wrapper. Pass a class name as %1 or just NULL.')
+				);
+				
+			$macros['UIACC-END'] = array(
+				'class'=>'constant',
+				'regex'=>NULL,
+				'value'=>ACCORDION_END,
+				'owner'=>'jqueryui',
+				'desc'=>gettext('Provides the closing div element for a jQuery UI accordion wrapper.')
+			);
+				
+			$macros['UIACC-HL'] = array(
+				'class'=>'constant',
+				'regex'=>NULL,
+				'value'=>ACCORDION_HL,
+				'owner'=>'jqueryui',
+				'desc'=>gettext('Provides the opening h3 element for a jQuery UI accordion element header.')
+				);
+			$macros['UIACC-HL-END'] = array(
+				'class'=>'constant',
+				'regex'=>NULL,
+				'value'=>ACCORDION_HL_END,
+				'owner'=>'jqueryui',
+				'desc'=>gettext('Provides the closing h3 element for a jQuery UI accordion element header.')
+				);
+			$macros['UIACC-EL'] = array(
+				'class'=>'constant',
+				'regex'=>NULL,
+				'value'=>ACCORDION_EL,
+				'owner'=>'jqueryui',
+				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion element content.')
+				);
+			$macros['UIACC-EL-END'] = array(
+				'class'=>'constant',
+				'regex'=>NULL,
+				'value'=>ACCORDION_EL_END,
+				'owner'=>'jqueryui',
+				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion element content.')
+				); 
+		return $macros;
+	}
+
+static function getUIAccordionStart() {
+	if(!empty($class)) {
+		$class = ' '.$class;
+	}
+	echo $class;
+	$start = '<div class="accordion">';
+	return $start;
+}
+
+
 } // class end
 ?>
