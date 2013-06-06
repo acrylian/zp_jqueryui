@@ -111,12 +111,7 @@ static function jqueryuiJS() {
 }
 
 static function macros($macros) {
-		define('ACCORDION_END','</div>');
-		define('ACCORDION_HL','<h3>');
-		define('ACCORDION_HL_END','</h3>');
-		define('ACCORDION_EL','<div>');
-		define('ACCORDION_EL_END','</div>');
-		
+	
 		$macros['UIACC'] = array(
 				'class'=>'function',
 				'regex'=>'/^(.*)$/',
@@ -128,7 +123,7 @@ static function macros($macros) {
 			$macros['UIACC-END'] = array(
 				'class'=>'constant',
 				'regex'=>NULL,
-				'value'=>ACCORDION_END,
+				'value'=>'</div>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the closing div element for a jQuery UI accordion wrapper.')
 			);
@@ -136,28 +131,28 @@ static function macros($macros) {
 			$macros['UIACC-HL'] = array(
 				'class'=>'constant',
 				'regex'=>NULL,
-				'value'=>ACCORDION_HL,
+				'value'=>'<h3>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening h3 element for a jQuery UI accordion element header.')
 				);
 			$macros['UIACC-HL-END'] = array(
 				'class'=>'constant',
 				'regex'=>NULL,
-				'value'=>ACCORDION_HL_END,
+				'value'=>'</h3>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the closing h3 element for a jQuery UI accordion element header.')
 				);
 			$macros['UIACC-EL'] = array(
 				'class'=>'constant',
 				'regex'=>NULL,
-				'value'=>ACCORDION_EL,
+				'value'=>'<div>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion element content.')
 				);
 			$macros['UIACC-EL-END'] = array(
 				'class'=>'constant',
 				'regex'=>NULL,
-				'value'=>ACCORDION_EL_END,
+				'value'=>'</div>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion element content.')
 				); 
