@@ -42,6 +42,7 @@ Since such a structure is hard to get using TinyMCE there are these macros avail
 [UIACC-END]
 ```
 
-Due to limits of TinyMCE that always likes to add  line breaks or paragraphs automatically this currently does only work 
-if written inconveniently inline:
+Due to limits of TinyMCE that always likes to add  line breaks or paragraphs automatically this currently does only 
+work if written inconveniently inline:
 `[UIACC][UIACC-HL]Headline 1[UIACC-HL-END][UIACC-EL]Some Content[UIACC-EL-END][UIACC-HL]Headline 2[UIACC-HL-END][UIACC-EL]Some Content[UIACC-EL-END][UIACC-END]`
+Because of this you can only use simple content within each Accordion element.
