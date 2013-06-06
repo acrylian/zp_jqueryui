@@ -5,6 +5,8 @@ A Zenphoto plugin for jQuery UI
 
 *NOTE: This plugin is experimental* 
 
+Install the file and folder within your `/plugins` folder.
+
 The plugin does two things:
 - Load jQuery on the front end (This does not load the Zenphoto core one but its own newer 1.10.x version!)
 - Provides macros
