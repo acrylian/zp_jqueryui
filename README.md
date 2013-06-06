@@ -6,8 +6,8 @@ A Zenphoto plugin for jQuery UI
 *NOTE: This plugin is experimental* 
 
 The plugin does two things:
-a) Load jQuery UI 1.10 on the front end
-b) Provides some macros
+- Load jQuery on the front end (This does not load the Zenphoto core one but its own newer 1.10.x version!)
+- Provides macros
 
 Usage
 -----
@@ -15,7 +15,7 @@ Usage
 - Choose the theme page the scripts should be loaded on
 - Choose the jQuery UI theme to be used
 
-Macro usage
+Macros
 ------
 Due to the experimental nature it currently has only one macro currently: An accordion.
 The structure of an accordion is:
