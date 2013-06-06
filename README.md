@@ -17,7 +17,7 @@ Usage
 
 Macro usage
 ------
-Due to the experimental nature it currently has only one macro currently: An accordion
+Due to the experimental nature it currently has only one macro currently: An accordion.
 The structure of an accordion is:
 ```   
   <div class="accordion">
