@@ -1,5 +1,6 @@
 <?php
 /**
+ * A plugin to either load jQuery UI and also enable macros for accordion. Requires Zenphoto 1.4.5
  *
  * @license GPL v3 
  * @author Malte Müller (acrylian)
@@ -8,9 +9,9 @@
  */
 
 $plugin_is_filter = 9|THEME_PLUGIN;
-$plugin_description = gettext('A plugin to either load jQuery UI and also enable macros for accordion and tabs.');
+$plugin_description = gettext('A plugin to either load jQuery UI and also enable macros for accordion.');
 $plugin_author = 'Malte Müller (acrylian)';
-$plugin_version = '1.4.5';
+$plugin_version = '1.0';
 $option_interface = 'jqueryui';
 
 global $_zp_gallery, $_zp_gallery_page;
