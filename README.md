@@ -3,7 +3,7 @@ zp_jqueryui
 
 A Zenphoto plugin for jQuery UI
 
-*NOTE: This plugin is experimental* 
+**Experimental plugin, requires Zenphoto 1.4.5!** 
 
 Install the file and folder within your `/plugins` folder.
 
