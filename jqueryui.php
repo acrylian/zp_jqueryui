@@ -1,6 +1,5 @@
 <?php
 /**
- * A plugin to either load jQuery UI and also enable macros for accordion. Requires Zenphoto 1.4.5
  *
  * @license GPL v3 
  * @author Malte Müller (acrylian)
@@ -8,10 +7,10 @@
  * @package plugins
  */
 
-$plugin_is_filter = 9|THEME_PLUGIN;
-$plugin_description = gettext('A plugin to either load jQuery UI and also enable macros for accordion.');
+$plugin_is_filter = 9|THEME_PLUGIN|ADMIN_PLUGIN;
+$plugin_description = gettext('A plugin to either load jQuery UI and also enable macros for accordion and tabs.');
 $plugin_author = 'Malte Müller (acrylian)';
-$plugin_version = '1.0';
+$plugin_version = '1.4.5';
 $option_interface = 'jqueryui';
 
 global $_zp_gallery, $_zp_gallery_page;
@@ -115,7 +114,7 @@ static function macros($macros) {
 	
 		$macros['UIACC'] = array(
 				'class'=>'function',
-				'regex'=>'/^(.*)$/',
+				'params'=> array('string'),
 				'value'=>'jqueryui::getUIAccordionStart',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion wrapper. Pass a class name as %1 or just NULL.')
@@ -123,7 +122,7 @@ static function macros($macros) {
 				
 			$macros['UIACC-END'] = array(
 				'class'=>'constant',
-				'regex'=>NULL,
+				'params'=> array(),
 				'value'=>'</div>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the closing div element for a jQuery UI accordion wrapper.')
@@ -131,28 +130,28 @@ static function macros($macros) {
 				
 			$macros['UIACC-HL'] = array(
 				'class'=>'constant',
-				'regex'=>NULL,
+				'params'=> array(),
 				'value'=>'<h3>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening h3 element for a jQuery UI accordion element header.')
 				);
 			$macros['UIACC-HL-END'] = array(
 				'class'=>'constant',
-				'regex'=>NULL,
+				'params'=> array(),
 				'value'=>'</h3>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the closing h3 element for a jQuery UI accordion element header.')
 				);
 			$macros['UIACC-EL'] = array(
 				'class'=>'constant',
-				'regex'=>NULL,
+				'params'=> array(),
 				'value'=>'<div>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion element content.')
 				);
 			$macros['UIACC-EL-END'] = array(
 				'class'=>'constant',
-				'regex'=>NULL,
+				'params'=> array(),
 				'value'=>'</div>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion element content.')
