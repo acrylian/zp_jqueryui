@@ -120,11 +120,11 @@ static function jqueryuiJS() {
 static function macros($macros) {
 	
 		$macros['UIACC'] = array(
-				'class'=>'function',
-				'params'=> array('string'),
-				'value'=>'jqueryui::getUIAccordionStart',
+				'class'=>'expression',
+				'params'=> array('string*'),
+				'value'=>'jqueryui::getUIAccordionStart($1);',
 				'owner'=>'jqueryui',
-				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion wrapper. Pass a class name as %1 or just NULL.')
+				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion wrapper. Pass a class name as %1 or just empty.')
 				);
 				
 			$macros['UIACC-END'] = array(
