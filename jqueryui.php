@@ -175,6 +175,5 @@ static function getUIAccordionStart() {
 	return $start;
 }
 
-
 } // class end
 ?>
