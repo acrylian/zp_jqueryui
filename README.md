@@ -1,13 +1,11 @@
 zp_jqueryui
 ===========
 
-A Zenphoto plugin for jQuery UI
-
-**Experimental plugin** 
+An experimental Zenphoto plugin for jQuery UI
 
 The plugin does two things:
 - Load jQuery on the front end (This does not load the Zenphoto core one but its own newer 1.10.x version!)
-- Provides content macros to insert an accordion within the normal description or content fields (planned to be extended to tabs)
+- Experimental: Provides content macros to insert an accordion within the normal description or content fields (planned to be extended to tabs)
 
 Usage
 -----
