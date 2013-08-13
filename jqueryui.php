@@ -5,7 +5,7 @@
  *
  * The plugin does two things:
  * - Load jQuery on the front end (This does not load the Zenphoto core one but its own newer 1.10.x version!)
- * - Provides content macros to insert an accordion within the normal description or content fields (planned to be extended to tabs)
+ * - Provides content macros to insert an accordion or tabs within the normal description or content fields
  *
  * @license GPL v3 
  * @author Malte Müller (acrylian)
@@ -104,7 +104,7 @@ static function jqueryuiJS() {
 	if(file_exists($skin)) {
 		$skin = str_replace(SERVERPATH,WEBPATH,$skin); //replace SERVERPATH as that does not work as a CSS link
 	} else {
-		$skin = WEBPATH.'/'.ZENFOLDER.'/'.PLUGIN_FOLDER.'/jplayer/skin/zenphotolight/jplayer.zenphotolight.css';
+		$skin = WEBPATH.'/'.USER_PLUGIN_FOLDER.'/jqueryui/themes/ui-lightness/jquery-ui.min.css';
 	}
 	?>
 	<script type="text/javascript" src="<?php echo FULLWEBPATH.'/'.USER_PLUGIN_FOLDER; ?>/jqueryui/jquery-ui.min.js"></script>
@@ -204,16 +204,16 @@ static function macros($macros) {
 	static function getUITabsStart($id,$tabs) {
 		global $tabid;		
 		$tabid = $id;
-		print_r($tabs);
-		//$content = '<div style="display:block" id="'.$id.'" class="ui-tabs">';
+		//print_r($tabs);
+		$content = '<div style="display:block" id="'.$id.'" class="ui-tabs">';
 		$count = '';
-		/* $content .= '<ul>';
+		$content .= '<ul>';
 		 foreach($tabs as $key=>$tab) {
 			$count++;
 			$content .= '<li><a href="#'.$id.'-'.$count.'">tab</a></li>';
 		}
 		$content .= '</ul>';
-		return $content; */
+		return $content; 
 	}
 
 	
