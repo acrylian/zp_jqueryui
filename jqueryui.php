@@ -123,12 +123,12 @@ static function macros($macros) {
 			$macros['UIACC'] = array(
 				'class'=>'constant',
 				'params'=> array(),
-				'value'=>'<span class="ui-accordion">',
+				'value'=>'<span class="ui-accordion" style="display: block">',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion wrapper. Pass a class name as %1 or just empty.')
 				);
 				
-			$macros['UIACC-END'] = array(
+			$macros['UIACC_END'] = array(
 				'class'=>'constant',
 				'params'=> array(),
 				'value'=>'</span>',
@@ -136,28 +136,28 @@ static function macros($macros) {
 				'desc'=>gettext('Provides the closing div element for a jQuery UI accordion wrapper.')
 			);
 				
-			$macros['UIACC-HL'] = array(
+			$macros['UIACC_HL'] = array(
 				'class'=>'constant',
 				'params'=> array(),
 				'value'=>'<h3>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening h3 element for a jQuery UI accordion element header.')
 				);
-			$macros['UIACC-HL-END'] = array(
+			$macros['UIACC_HL_END'] = array(
 				'class'=>'constant',
 				'params'=> array(),
 				'value'=>'</h3>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the closing h3 element for a jQuery UI accordion element header.')
 				);
-			$macros['UIACC-EL'] = array(
+			$macros['UIACC_EL'] = array(
 				'class'=>'constant',
 				'params'=> array(),
 				'value'=>'<span>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion element content.')
 				);
-			$macros['UIACC-EL-END'] = array(
+			$macros['UIACC_EL_END'] = array(
 				'class'=>'constant',
 				'params'=> array(),
 				'value'=>'</span>',
@@ -182,7 +182,7 @@ static function macros($macros) {
 				'desc'=>gettext('Provides the opening wrapper for the tab content. Pass the tab number as %1')
 				); 
 				
-				$macros['UITAB-END'] = array(
+				$macros['UITAB_END'] = array(
 				'class'=>'constant',
 				'params'=> array(),
 				'value'=>'</span>',
@@ -190,7 +190,7 @@ static function macros($macros) {
 				'desc'=>gettext('Provides the opening wrapper for the tab content. The number of these must match those set with the main wrapper.')
 				); 
 	
-				$macros['UITABS-END'] = array(
+				$macros['UITABS_END'] = array(
 				'class'=>'constant',
 				'params'=> array(),
 				'value'=>'</div>',
