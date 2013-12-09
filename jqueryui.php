@@ -1,11 +1,12 @@
 <?php
 /**
  * A Zenphoto plugin for jQuery UI
- * Experimental plugin, requires Zenphoto 1.4.5!** 
+ * Experimental plugin
  *
  * The plugin does two things:
- * - Load jQuery on the front end (This does not load the Zenphoto core one but its own newer 1.10.x version!)
+ * - Load jQuery on the front end. This does not load the Zenphoto core 1.9.x one but its own newer 1.10.x version.
  * - Provides content macros to insert an accordion or tabs within the normal description or content fields
+ * (experimental, conflicts with TinyMCE)
  *
  * @license GPL v3 
  * @author Malte Müller (acrylian)
