@@ -124,7 +124,7 @@ static function macros($macros) {
 			$macros['UIACC'] = array(
 				'class'=>'constant',
 				'params'=> array(),
-				'value'=>'<span class="ui-accordion" style="display: block">',
+				'value'=>'<div class="ui-accordion" style="display: block">',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion wrapper. Pass a class name as %1 or just empty.')
 				);
@@ -132,7 +132,7 @@ static function macros($macros) {
 			$macros['UIACC_END'] = array(
 				'class'=>'constant',
 				'params'=> array(),
-				'value'=>'</span>',
+				'value'=>'</div>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the closing div element for a jQuery UI accordion wrapper.')
 			);
@@ -154,14 +154,14 @@ static function macros($macros) {
 			$macros['UIACC_EL'] = array(
 				'class'=>'constant',
 				'params'=> array(),
-				'value'=>'<span>',
+				'value'=>'<div>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion element content.')
 				);
 			$macros['UIACC_EL_END'] = array(
 				'class'=>'constant',
 				'params'=> array(),
-				'value'=>'</span>',
+				'value'=>'</div>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening div element for a jQuery UI accordion element content.')
 				); 
@@ -186,7 +186,7 @@ static function macros($macros) {
 				$macros['UITAB_END'] = array(
 				'class'=>'constant',
 				'params'=> array(),
-				'value'=>'</span>',
+				'value'=>'</div>',
 				'owner'=>'jqueryui',
 				'desc'=>gettext('Provides the opening wrapper for the tab content. The number of these must match those set with the main wrapper.')
 				); 
@@ -209,7 +209,7 @@ static function macros($macros) {
 		$content = '<div style="display:block" id="'.$id.'" class="ui-tabs">';
 		$count = '';
 		$content .= '<ul>';
-		 foreach($tabs as $key=>$tab) {
+		foreach($tabs as $key=>$tab) {
 			$count++;
 			$content .= '<li><a href="#'.$id.'-'.$count.'">tab</a></li>';
 		}
@@ -220,7 +220,7 @@ static function macros($macros) {
 	
 	static function getUITabStart($number) {
 		global $tabid;
-		$content = '<span id="'.$tabid.'-'.$number.'">';
+		$content = '<div id="'.$tabid.'-'.$number.'">';
 		return $content;
 	}
 	
