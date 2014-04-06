@@ -16,8 +16,11 @@ The plugin does two things:
 
 ###Macros
 
-We use spans instead of divs because TinyMCE likes to add paragraphs around everything so they would be invalid.
-Since such a structure is hard to get using TinyMCE there are these macros available that generate the above structure:
+These are some macros you can enter in all main content text fields.
+
+*NOTE: Zenphoto's default editor TinyMCE automatically wraps everything in paragraphs. This results in invalid nested html as the macros are applied after TinyMCE does this. To have these working correctly with valid HTML your server needs to support the [PHP Tidy extension](http://www.php.net/manual/en/book.tidy.php).*
+
+*Because of TinyMCE the macros work best if entered inline and/or via TinyMCE's code view window. Currently you also can only use simple text content (no headlines, no lists etc) within each Accordion element. If you need parapgraphs you mimic them with line breaks.*
 
 ####a) Accordion
 Example: http://jqueryui.com/accordion/
@@ -79,6 +82,3 @@ That generates the following HTML:
 		</span>
 	</span>
 ```
-
-**NOTE**
-Because of TinyMCE the macros work best if entered inline and/or via TinyMCE's code view window. Currently you also can only use simple text content (no headlines, no lists etc) within each Accordion element. If you need parapgraphs you mimic them with line breaks.
