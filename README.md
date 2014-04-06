@@ -34,16 +34,16 @@ Example: http://jqueryui.com/accordion/
 ```
 This generats the following HTML:
 ```   
-  <span class="ui-accordion">
+  <div class="ui-accordion">
     <h3>Headline 1</h3>
-    <span><!-- content wrapper -->
+    <div><!-- content wrapper -->
       Some content
-    </span>
+    </div>
     <h3>Headline 2</h3>
-    <span><!-- content wrapper -->
+    <div><!-- content wrapper -->
       Some content
-    </span>
-  </span>
+    </div>
+  </div>
 ```
 
 ####b) Tabs
@@ -65,20 +65,20 @@ The macros to generate those:
 ```
 That generates the following HTML:
 ```
-	<span class="ui-tabs" id="mytabs">
+	<div class="ui-tabs" id="mytabs">
 		<ul>
 			<li><a href="#mytabs-1">Tab1</li>
 			<li><a href="#mytabs-2">Tab2</li>
 			<li><a href="#mytabs-3">Tab2</li>
 		</ul>
-		<span id="mytabs-1">
+		<div id="mytabs-1">
 			Tab content 1
-		</span>
-		<span id="mytabs-2">
+		</div>
+		<div id="mytabs-2">
 			Tab content 3
-		</span>
-		<span id="mytabs-3">
+		</div>
+		<div id="mytabs-3">
 			Tab content 3
-		</span>
-	</span>
+		</div>
+	</div>
 ```
