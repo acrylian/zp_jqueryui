@@ -1,7 +1,7 @@
 zp_jqueryui
 ===========
 
-An experimental Zenphoto plugin for jQuery UI
+An experimental [Zenphoto](http://www.zenphoto.org) plugin for jQuery UI
 
 The plugin does two things:
 - Load jQuery on the front end (This does not load the Zenphoto core one but its own newer 1.10.x version!)
