@@ -8,9 +8,9 @@
  * - Provides content macros to insert an accordion or tabs within the normal description or content fields
  * (experimental, conflicts with TinyMCE)
  *
- * @license GPL v3 
- * @author Malte Müller (acrylian)
- *
+ * @author Malte Müller (acrylian) <info@maltem.de>
+ * @copyright 2014 Malte Müller
+ * @license GPL v3 or later
  * @package plugins
  * @subpackage misc
  */
@@ -18,7 +18,7 @@
 $plugin_is_filter = 9|THEME_PLUGIN|ADMIN_PLUGIN;
 $plugin_description = gettext('A plugin to either load jQuery UI and also enable macros for accordion and tabs.');
 $plugin_author = 'Malte Müller (acrylian)';
-$plugin_version = '1.4.5';
+$plugin_version = '1.0.0';
 $option_interface = 'jqueryui';
 
 global $_zp_gallery, $_zp_gallery_page;
