@@ -8,7 +8,7 @@ The plugin does two things:
 - Experimental: Provides content macros to insert an accordion within the normal description or content fields (planned to be extended to tabs)
 
 ##Usage
-- Install the file and folder within your `/plugins` folder
+- Put the file `zp_jqueryui.php` and the folder of the same name into your `/plugins` folder
 - Activate the plugin
 - Choose the theme page the scripts should be loaded on
 - Choose the jQuery UI theme to be used
