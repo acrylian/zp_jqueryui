@@ -7,14 +7,15 @@ The plugin does two things:
 - Load jQuery on the front end (This does not load the Zenphoto core one but its own newer 1.10.x version!)
 - Experimental: Provides content macros to insert an accordion within the normal description or content fields (planned to be extended to tabs)
 
-##Usage
+## Usage
+
 - Put the file `zp_jqueryui.php` and the folder of the same name into your `/plugins` folder
 - Activate the plugin
 - Choose the theme page the scripts should be loaded on
 - Choose the jQuery UI theme to be used
 - Either use the macros below and/or use jquery ui features directly on your theme.
 
-###Macros
+### Macros
 
 These are some macros you can enter in all main content text fields.
 
@@ -22,7 +23,8 @@ These are some macros you can enter in all main content text fields.
 
 *Because of TinyMCE the macros work best if entered inline and/or via TinyMCE's code view window. Currently you also can only use simple text content (no headlines, no lists etc) within each Accordion element. If you need parapgraphs you mimic them with line breaks.*
 
-####a) Accordion
+#### a) Accordion
+
 Example: http://jqueryui.com/accordion/
 
 ```
@@ -49,7 +51,8 @@ This generats the following HTML:
 </div>
 ```
 
-####b) Tabs
+#### b) Tabs
+
 Example: http://jqueryui.com/tabs/
 The macros to generate those:
 ```
